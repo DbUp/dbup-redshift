@@ -37,15 +37,19 @@ jobs:
 
       - name: Restore
         run: dotnet restore
+        working-directory: src
 
       - name: Build
         run: dotnet build -c Release --no-restore /p:Version=$GITVERSION_SEMVER
+        working-directory: src
 
       - name: Test
         run: dotnet test --no-build --logger trx --logger console;verbosity=detailed --results-directory ../artifacts
+        working-directory: src
 
       - name: Pack
         run: dotnet pack --no-build -c Release -o ../artifacts /p:Version=$GITVERSION_SEMVER
+        working-directory: src
 
       - name: Upload NuGet packages as artifacts ⬆️
         uses: actions/upload-artifact@v3

@@ -9,6 +9,7 @@
     <AssemblyOriginatorKeyFile>../dbup.snk</AssemblyOriginatorKeyFile>
     <SignAssembly>true</SignAssembly>
     <PublicSign Condition=" '$(OS)' != 'Windows_NT' ">true</PublicSign>
+    <Product>dbup_redshift</Product>
     <PackageId>dbup-redshift</PackageId>
     <PackageReleaseNotes>https://github.com/DbUp/DbUp/releases</PackageReleaseNotes>
     <PackageIcon>dbup-icon.png</PackageIcon>
@@ -23,9 +24,9 @@
   <PropertyGroup Condition="'$(TargetFramework)' == 'net35'">
     <DefineConstants>$(DefineConstants);NPGSQLv2</DefineConstants>
   </PropertyGroup>
-  
+
   <ItemGroup>
-    <ProjectReference Include="..\dbup-core\dbup-core.csproj" />
+    <PackageReference Include="dbup-core" Version="4.5.0" />
   </ItemGroup>
 
   <ItemGroup Condition="'$(TargetFramework)' == 'net35'">
@@ -37,7 +38,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Visible="false" Include="../../dbup-icon.png" Pack="True" PackagePath="" />
+    <None Visible="false" Include="../dbup-icon.png" Pack="True" PackagePath="" />
   </ItemGroup>
-  
+
 </Project>

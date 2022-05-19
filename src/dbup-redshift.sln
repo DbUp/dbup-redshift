@@ -6,7 +6,23 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_", "_", "{2BB18839-D96E-4697-902D-1900A6B75F69}"
 	ProjectSection(SolutionItems) = preProject
-		Directory.Build.props = Directory.Build.props
+		..\.gitattributes = ..\.gitattributes
+		..\.gitignore = ..\.gitignore
+		..\license.txt = ..\license.txt
+		..\README.md = ..\README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{62E5FE92-E288-4E09-964D-F92AF0E49131}"
+	ProjectSection(SolutionItems) = preProject
+		..\.github\workflows\main.yml = ..\.github\workflows\main.yml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{5DA19CA9-8039-46D6-B474-021943582785}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{77157734-01DA-4AA3-A15C-504013343B29}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		dbup-redshift.sln.DotSettings = dbup-redshift.sln.DotSettings
 	EndProjectSection
 EndProject
 Global
@@ -23,5 +39,10 @@ Global
 		{8CE634FE-6772-408E-9340-909F6218F8F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8CE634FE-6772-408E-9340-909F6218F8F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8CE634FE-6772-408E-9340-909F6218F8F7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{62E5FE92-E288-4E09-964D-F92AF0E49131} = {5DA19CA9-8039-46D6-B474-021943582785}
+		{77157734-01DA-4AA3-A15C-504013343B29} = {2BB18839-D96E-4697-902D-1900A6B75F69}
+		{5DA19CA9-8039-46D6-B474-021943582785} = {2BB18839-D96E-4697-902D-1900A6B75F69}
 	EndGlobalSection
 EndGlobal

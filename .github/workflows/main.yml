@@ -62,7 +62,7 @@ jobs:
       - name: Upload NuGet packages as artifacts ⬆️
         uses: actions/upload-artifact@v3
         with:
-          path: artifacts/dbup-redshift.$env:GitVersion_SemVer.nupkg
+          path: artifacts/dbup-redshift.*.nupkg
 
       - name: Test Report 🧪
         uses: dorny/test-reporter@v1

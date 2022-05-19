@@ -7,7 +7,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     env:
       DOTNET_NOLOGO: true
@@ -47,7 +47,7 @@ jobs:
         working-directory: src
 
       - name: Test
-        run: dotnet test --no-build --logger trx --logger console;verbosity=detailed --results-directory ../artifacts
+        run: dotnet test --no-build -c Release --logger trx --logger "console;verbosity=detailed" --results-directory ../artifacts
         working-directory: src
 
       - name: Pack

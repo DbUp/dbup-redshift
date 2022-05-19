@@ -33,7 +33,7 @@ jobs:
 
       - name: Display SemVer
         run: |
-            echo "SemVer: $GITVERSION_SEMVER"
+            echo "SemVer: $env:GitVersion_SemVer"
           
       - name: Add DbUp NuGet Source
         run: dotnet nuget add source --name DbUp --username DbUp --password ${{ secrets.GITHUB_TOKEN }} --store-password-in-clear-text https://nuget.pkg.github.com/DbUp/index.json
@@ -43,7 +43,7 @@ jobs:
         working-directory: src
 
       - name: Build
-        run: dotnet build -c Release --no-restore /p:Version=$GITVERSION_SEMVER
+        run: dotnet build -c Release --no-restore /p:Version=$env:GitVersion_SemVer
         working-directory: src
 
       - name: Test
@@ -51,13 +51,13 @@ jobs:
         working-directory: src
 
       - name: Pack
-        run: dotnet pack --no-build -c Release -o ../artifacts /p:Version=$GITVERSION_SEMVER
+        run: dotnet pack --no-build -c Release -o ../artifacts /p:Version=$env:GitVersion_SemVer
         working-directory: src
 
       - name: Upload NuGet packages as artifacts ⬆️
         uses: actions/upload-artifact@v3
         with:
-          path: artifacts/dbup-redshift.$GITVERSION_SEMVER.nupkg
+          path: artifacts/dbup-redshift.$env:GitVersion_SemVer.nupkg
 
       - name: Test Report 🧪
         uses: dorny/test-reporter@v1

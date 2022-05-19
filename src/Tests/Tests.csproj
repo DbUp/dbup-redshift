@@ -23,10 +23,5 @@
     <Compile Remove="ApprovalFiles\*.cs" />
     <None Include="ApprovalFiles\*.cs" />
   </ItemGroup>
-
-  <ItemGroup>
-    <Reference Include="DbUp.Tests.Common, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
-      <HintPath>bin\Debug\net461\DbUp.Tests.Common.dll</HintPath>
-    </Reference>
-  </ItemGroup>
+  
 </Project>

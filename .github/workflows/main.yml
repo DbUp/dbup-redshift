@@ -61,7 +61,7 @@ jobs:
 
       - name: Push NuGet packages to GitHub Packages ⬆️
         working-directory: artifacts
-        run: dotnet nuget push dbup-redshift.$env:GitVersion_SemVer.nupkg --api-key ${{ secrets.GITHUB_TOKEN }} --source "https://nuget.pkg.github.com/DbUp/index.json"
+        run: dotnet nuget push *.nupkg --api-key ${{ secrets.GITHUB_TOKEN }} --source "https://nuget.pkg.github.com/DbUp/index.json"
 
       - name: Test Report 🧪
         uses: dorny/test-reporter@v1

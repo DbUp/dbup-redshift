@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net461;netcoreapp2.0</TargetFrameworks>
+    <AssemblyName>Tests</AssemblyName>
+    <RootNamespace>DbUp.Redshift.Tests</RootNamespace>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <!--    <ImplicitUsings>enable</ImplicitUsings> Can't use implict usings with net46 -->
+    <Nullable>enable</Nullable>
+    <NoWarn>$(NoWarn);NETSDK1138</NoWarn> <!-- Purposefully leaving an old version of netcoreapp to ensure we have compatibility. This never gets published -->
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\dbup-redshift\dbup-redshift.csproj" />
+    <PackageReference Include="DbUp.Tests.Common" Version="4.6.5-SeperateProviderTests.2" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.5.0" />
+    <PackageReference Include="xunit" Version="2.4.1" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.4.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="ApprovalFiles\*.cs" />
+    <None Include="ApprovalFiles\*.cs" />
+  </ItemGroup>
+  
+</Project>

@@ -34,6 +34,7 @@ jobs:
           versionSpec: '5.x'
 
       - name: Run GitVersion
+        id: gitversion
         uses: gittools/actions/gitversion/execute@v0.9.7
 
       - name: Display SemVer
@@ -63,6 +64,11 @@ jobs:
         working-directory: artifacts
         run: dotnet nuget push dbup-redshift.$env:GitVersion_SemVer.nupkg --api-key ${{ secrets.GITHUB_TOKEN }} --source "https://nuget.pkg.github.com/DbUp/index.json"
 
+      - name: Push NuGet packages to NuGet ⬆️
+        if: ${{ steps.gitversion.outputs.preReleaseTag == '' }}
+        working-directory: artifacts
+        run: dotnet nuget push dbup-redshift.$env:GitVersion_SemVer.nupkg --api-key ${{ secrets.NUGET_APIKEY }} -s https://api.nuget.org/v3/index.json
+        
       - name: Test Report 🧪
         uses: dorny/test-reporter@v1
         if: ${{ always() }}

@@ -8,7 +8,6 @@
     <RootNamespace>DbUp.Redshift</RootNamespace>
     <AssemblyOriginatorKeyFile>../dbup.snk</AssemblyOriginatorKeyFile>
     <SignAssembly>true</SignAssembly>
-    <PublicSign Condition=" '$(OS)' != 'Windows_NT' ">true</PublicSign>
     <RepositoryUrl>https://github.com/DbUp/dbup-redshift.git</RepositoryUrl>
     <Product>dbup_redshift</Product>
     <PackageId>dbup-redshift</PackageId>

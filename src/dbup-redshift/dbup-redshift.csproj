@@ -1,37 +1,31 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <Description>DbUp makes it easy to deploy and upgrade SQL Server databases. This package adds Amazon Redshift support.</Description>
-    <Title>DbUp Redshift Support</Title>
-    <TargetFrameworks>netstandard1.3;netstandard2.0;net35;net45</TargetFrameworks>
-    <AssemblyName>dbup-redshift</AssemblyName>
-    <RootNamespace>DbUp.Redshift</RootNamespace>
-    <AssemblyOriginatorKeyFile>../dbup.snk</AssemblyOriginatorKeyFile>
-    <SignAssembly>true</SignAssembly>
-    <RepositoryUrl>https://github.com/DbUp/dbup-redshift.git</RepositoryUrl>
-    <Product>dbup_redshift</Product>
-    <PackageId>dbup-redshift</PackageId>
-    <PackageIcon>dbup-icon.png</PackageIcon>
-  </PropertyGroup>
+    <PropertyGroup>
+        <Description>DbUp makes it easy to deploy and upgrade SQL Server databases. This package adds Amazon Redshift support.</Description>
+        <Title>DbUp Redshift Support</Title>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <AssemblyName>dbup-redshift</AssemblyName>
+        <RootNamespace>DbUp.Redshift</RootNamespace>
+        <AssemblyOriginatorKeyFile>../dbup.snk</AssemblyOriginatorKeyFile>
+        <SignAssembly>true</SignAssembly>
+        <RepositoryUrl>https://github.com/DbUp/dbup-redshift.git</RepositoryUrl>
+        <Product>dbup_redshift</Product>
+        <PackageId>dbup-redshift</PackageId>
+        <PackageIcon>dbup-icon.png</PackageIcon>
+    </PropertyGroup>
 
-  <PropertyGroup Condition="'$(TargetFramework)' == 'net35'">
-    <DefineConstants>$(DefineConstants);NPGSQLv2</DefineConstants>
-  </PropertyGroup>
+    <PropertyGroup Condition="'$(CI)' == 'true'">
+        <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild> <!-- Perform a deterministic build, so our binaries aren't impacted by build server environmental factors (e.g. file paths). -->
+        <EmbedUntrackedSources>true</EmbedUntrackedSources> <!-- Embed source files that are not tracked by the source control manager in the PDB -->
+        <DebugType>embedded</DebugType> <!-- Recommended: Embed symbols containing Source Link in the main file (exe/dll) -->
+    </PropertyGroup>
+    
+    <ItemGroup>
+        <PackageReference Include="dbup-core" Version="6.0.0-beta.146"/>
+        <PackageReference Include="Npgsql" Version="8.0.3" />
+    </ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="dbup-core" Version="4.5.0" />
-  </ItemGroup>
-
-  <ItemGroup Condition="'$(TargetFramework)' == 'net35'">
-    <PackageReference Include="Npgsql" Version="2.2.7" /> <!-- Last version that supports .NET 3.5 -->
-  </ItemGroup>
-
-  <ItemGroup Condition="'$(TargetFramework)' != 'net35'">
-    <PackageReference Include="Npgsql" Version="3.2.6" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Visible="false" Include="../dbup-icon.png" Pack="True" PackagePath="" />
-  </ItemGroup>
-
+    <ItemGroup>
+        <None Visible="false" Include="../dbup-icon.png" Pack="True" PackagePath=""/>
+    </ItemGroup>
 </Project>

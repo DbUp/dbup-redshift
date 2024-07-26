@@ -40,11 +40,7 @@ namespace DbUp.Redshift
             {
                 excuteCommand();
             }
-#if NPGSQLv2
-            catch (NpgsqlException exception)
-#else
             catch (PostgresException exception)
-#endif
             {
                 Log().LogInformation("Npgsql exception has occured in script: '{0}'", script.Name);
                 Log().LogError("Script block number: {0}; Block line {1}; Position: {2}; Message: {3}", index, exception.Line, exception.Position, exception.Message);

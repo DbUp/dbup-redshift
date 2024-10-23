@@ -122,17 +122,14 @@ public static class RedshiftExtensions
             logMasterConnectionStringBuilder.Password = "******";
         }
 
-        logger.WriteInformation("Master ConnectionString => {0}", logMasterConnectionStringBuilder.ConnectionString);
+        logger.LogInformation("Master ConnectionString => {0}", logMasterConnectionStringBuilder.ConnectionString);
 
         using (var connection = new NpgsqlConnection(masterConnectionStringBuilder.ConnectionString))
         {
             connection.Open();
 
-            var sqlCommandText = string.Format
-                (
-                    @"SELECT case WHEN oid IS NOT NULL THEN 1 ELSE 0 end FROM pg_database WHERE datname = '{0}' limit 1;",
-                    databaseName
-                );
+            var sqlCommandText =
+                $@"SELECT case WHEN oid IS NOT NULL THEN 1 ELSE 0 end FROM pg_database WHERE datname = '{databaseName}' limit 1;";
 
 
             // check to see if the database already exists..
@@ -150,11 +147,7 @@ public static class RedshiftExtensions
                 }
             }
 
-            sqlCommandText = string.Format
-                (
-                    "create database \"{0}\";",
-                    databaseName
-                );
+            sqlCommandText = $"create database \"{databaseName}\";";
 
             // Create the database...
             using (var command = new NpgsqlCommand(sqlCommandText, connection)
@@ -166,7 +159,7 @@ public static class RedshiftExtensions
 
             }
 
-            logger.WriteInformation(@"Created database {0}", databaseName);
+            logger.LogInformation(@"Created database {0}", databaseName);
         }
     }
 

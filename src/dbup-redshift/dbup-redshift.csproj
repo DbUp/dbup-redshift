@@ -3,7 +3,7 @@
     <PropertyGroup>
         <Description>DbUp makes it easy to deploy and upgrade SQL Server databases. This package adds Amazon Redshift support.</Description>
         <Title>DbUp Redshift Support</Title>
-        <TargetFramework>netstandard2.0</TargetFramework>
+        <TargetFramework>net8.0</TargetFramework>
         <AssemblyName>dbup-redshift</AssemblyName>
         <RootNamespace>DbUp.Redshift</RootNamespace>
         <AssemblyOriginatorKeyFile>../dbup.snk</AssemblyOriginatorKeyFile>
@@ -22,7 +22,7 @@
     
     <ItemGroup>
         <PackageReference Include="dbup-core" Version="6.0.3" />
-        <PackageReference Include="Npgsql" Version="8.0.5" />
+        <PackageReference Include="Npgsql" Version="9.0.2" />
     </ItemGroup>
 
     <ItemGroup>

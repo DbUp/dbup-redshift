@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 using DbUp.Engine.Transactions;
@@ -20,10 +20,7 @@ namespace DbUp.Redshift
         {
         }
 
-        /// <summary>
-        /// Splits the statements in the script using the ";" character.
-        /// </summary>
-        /// <param name="scriptContents">The contents of the script to split.</param>
+        /// <inheritdoc/>
         public override IEnumerable<string> SplitScriptIntoCommands(string scriptContents)
         {
             var scriptStatements =

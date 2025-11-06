@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
         <Description>DbUp makes it easy to deploy and upgrade SQL Server databases. This package adds Amazon Redshift support.</Description>
@@ -12,6 +12,7 @@
         <Product>dbup_redshift</Product>
         <PackageId>dbup-redshift</PackageId>
         <PackageIcon>dbup-icon.png</PackageIcon>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
     </PropertyGroup>
 
     <PropertyGroup Condition="'$(CI)' == 'true'">

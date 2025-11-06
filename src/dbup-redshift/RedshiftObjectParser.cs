@@ -1,4 +1,4 @@
-﻿using DbUp.Support;
+using DbUp.Support;
 
 namespace DbUp.Redshift
 {
@@ -7,6 +7,9 @@ namespace DbUp.Redshift
     /// </summary>
     public class RedshiftObjectParser : SqlObjectParser
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="RedshiftObjectParser"/> class.
+        /// </summary>
         public RedshiftObjectParser() : base("\"", "\"")
         {
         }

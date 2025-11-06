@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using DbUp.Engine;
 using DbUp.Engine.Output;
@@ -30,10 +30,12 @@ namespace DbUp.Redshift
 
         }
 
+        /// <inheritdoc/>
         protected override string GetVerifySchemaSql(string schema)
            => $@"CREATE SCHEMA IF NOT EXISTS {schema}";
 
 
+        /// <inheritdoc/>
         protected override void ExecuteCommandsWithinExceptionHandler(int index, SqlScript script, Action excuteCommand)
         {
             try

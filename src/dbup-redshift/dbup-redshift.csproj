@@ -23,7 +23,7 @@
     
     <ItemGroup>
         <PackageReference Include="dbup-core" Version="6.0.15" />
-        <PackageReference Include="Npgsql" Version="9.0.2" />
+        <PackageReference Include="Npgsql" Version="9.0.4" />
     </ItemGroup>
 
     <ItemGroup>

@@ -1,4 +1,4 @@
-[![GitHub Workflow Status (branch)](https://img.shields.io/github/workflow/status/DbUp/dbup-redshift/CI/main)](https://github.com/DbUp/dbup-redshift/actions/workflows/main.yml?query=branch%3Amain)
+[![GitHub Workflow Status (branch)](https://img.shields.io/github/actions/workflow/status/DbUp/dbup-redshift/main.yml)](https://github.com/DbUp/dbup-redshift/actions/workflows/main.yml?query=branch%3Amain)
 [![NuGet](https://img.shields.io/nuget/dt/dbup-redshift.svg)](https://www.nuget.org/packages/dbup-redshift)
 [![NuGet](https://img.shields.io/nuget/v/dbup-redshift.svg)](https://www.nuget.org/packages/dbup-redshift)
 [![Prerelease](https://img.shields.io/nuget/vpre/dbup-redshift?color=orange&label=prerelease)](https://www.nuget.org/packages/dbup-redshift)
